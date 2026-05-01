@@ -4,7 +4,7 @@ public class Task {
     private int priority;
     private boolean isCompleted;
 
-    // Constructor for Object Creation
+    // creates a task when the user adds one
     public Task(String title, String dueDate, int priority) {
         this.title = title;
         this.dueDate = dueDate;
@@ -12,15 +12,39 @@ public class Task {
         this.isCompleted = false;
     }
 
-    // getters and setters 
-    public String getTitle() { return title; }
-    public boolean isCompleted() { return isCompleted; }
-    public void setCompleted(boolean completed) { this.isCompleted = completed; }
+    // getter methods
+    public String getTitle() {
+        return title;
+    }
 
-    // This is the method to display task details with string formatting
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    // updates completion status
+    public void setCompleted(boolean completed) {
+        this.isCompleted = completed;
+    }
+
+    // displays task information in a cleaner format
     public void displayTask(int id) {
         String status = isCompleted ? "[X]" : "[ ]";
-        System.out.printf("%d. %s %-15s | Due: %-8s | Priority: %d\n", 
-                          id, status, title, dueDate, priority);
+
+        System.out.printf(
+            "%d. %s %-15s | Due: %-8s | Priority: %d\n",
+            id,
+            status,
+            title,
+            dueDate,
+            priority
+        );
     }
 }
